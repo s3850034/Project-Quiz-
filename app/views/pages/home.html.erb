@@ -1,5 +1,8 @@
 <div class="center jumbotron">
 <h1>Quiz+</h1>
 <h2>Click the button to start quiz</h2>
-<p><%= button_to "Begin", quizzes_path(user_id: session[:user_id])%></p>
+<%= form_with url: quizzes_create_path do |f| %>
+    <%= f.number_field :question_amount, min: 4, max:8%>
+    <%=f.submit "Begin" %>
+<% end %>
 </div>

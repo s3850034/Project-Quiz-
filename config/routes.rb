@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   
   get 'pages/home'
   post 'quizzes/next'
-  resources :quizzes, only: [:create]
+  # resources :quizzes, only: [:create]
+  post 'quizzes/create'
   resources :questions, only: [:show]
+  post 'quizzes/reload'
   get 'pages/results'
 
 

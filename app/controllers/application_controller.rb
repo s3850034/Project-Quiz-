@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:user_id] == nil
-      user = User.create
-      session[:user_id] = user.id
+      @user = User.create
+      session[:user_id] = @user.id
     end
   end
 end

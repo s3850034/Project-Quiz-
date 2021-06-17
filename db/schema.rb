@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210617035115) do
+ActiveRecord::Schema.define(version: 20210617104348) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_bank_id"
     t.string "answer"
     t.boolean "user"
     t.boolean "correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attempts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "result"
+    t.integer "questions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

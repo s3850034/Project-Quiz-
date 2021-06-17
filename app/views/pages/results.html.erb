@@ -1,4 +1,7 @@
 <div class="center jumbotron">
     <p>You answered <%= @num_correct%> / <%= @num_questions %> </p>
-    <p><%= button_to "Reload", quizzes_path(user_id: session[:user_id])%></p>
+    <% @attempts.each do |a|%>   
+        <p>At <%=a.created_at%>, you answered <%= a.result%> / <%= a.questions %> </p>
+    <% end %>          
+    <p><%= button_to "Reload", quizzes_reload_path%></p>
 </div>
