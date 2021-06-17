@@ -57,15 +57,15 @@ class QuizzesController < ApplicationController
      (1..num_questions).each do 
         new_question = rand(new_data.length-1)
         if !already_added.include?(new_question)
-            question = new_data[new_question]
+            q = new_data[new_question]
             already_added << new_question
             adding_question = QuestionBank.create({quiz_id: @current_quiz.id,
-            json_id: question["id"], question: question["question"], category:
-            question["category"], difficulty: question["difficulty"], done: false,
-            multiple_correct_answers: question["multiple_correct_answers"] ==
+            json_id: q["id"], question: q["question"], category:
+            q["category"], difficulty: q["difficulty"], done: false,
+            multiple_correct_answers: q["multiple_correct_answers"] ==
             "true" ? true : false})
-            question["answers"].each do |k,v|
-                Answer.create(question_bank_id: adding_question.id, answer: v, user: false, correct: question["correct_answers"]["#{k}_correct"])
+            q["answers"].each do |k,v|
+                Answer.create(question_bank_id: adding_question.id, answer: v, user: false, correct: q["correct_answers"]["#{k}_correct"])
             end
         else
             redo
