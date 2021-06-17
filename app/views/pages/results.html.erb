@@ -1,0 +1,4 @@
+<div class="center jumbotron">
+    <p>You answered <%= @num_correct%> / <%= @num_questions %> </p>
+    <p><%= button_to "Reload", quizzes_path(user_id: session[:user_id])%></p>
+</div>
