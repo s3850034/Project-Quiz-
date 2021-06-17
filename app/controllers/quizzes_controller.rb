@@ -34,9 +34,9 @@ class QuizzesController < ApplicationController
      already_added = []
      new_question = 0
      (1..num_questions).each do 
-        question = @data[new_question]
         new_question = rand(15)
         if !already_added.include?(new_question)
+            question = @data[new_question]
             already_added << new_question
             adding_question = QuestionBank.create({quiz_id: @current_quiz.id,
             json_id: question["id"], question: question["question"], category:
