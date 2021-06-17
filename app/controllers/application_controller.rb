@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def dynamic_api_questions(cat)
+      response = RestClient.get "https://quizapi.io/api/v1/questions?apiKey=RKmazomP2gzKYq0kBHvvXMqzRcMy2VMicCnhOOzN&category=#{cat}" 
+      return JSON.parse(response)
+  end
+
   def current_user
     if session[:user_id] == nil
       @user = User.create

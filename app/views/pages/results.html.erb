@@ -3,5 +3,7 @@
     <% @attempts.each do |a|%>   
         <p>At <%=a.created_at%>, you answered <%= a.result%> / <%= a.questions %> </p>
     <% end %>          
-    <p><%= button_to "Reload", quizzes_reload_path%></p>
+    <p><%= button_to "Reload (Reload Same Quiz)", quizzes_reload_path%></p>
+    <p><%= link_to "Home/Remember Settings (Attempt New Quiz)", root_path%></p>
+    <p><%= button_to "Redo (Redo Same Quiz)", quizzes_reload_path%></p>
 </div>

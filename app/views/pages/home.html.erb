@@ -2,7 +2,17 @@
 <h1>Quiz+</h1>
 <h2>Click the button to start quiz</h2>
 <%= form_with url: quizzes_create_path do |f| %>
+    <%= f.label "Number of Questions"%>
     <%= f.number_field :question_amount, min: 4, max:8%>
-    <%=f.submit "Begin" %>
+    <%= f.label :linux_value, "Linux"%>
+    <%= f.check_box :linux_value%>
+    <%= f.label :devops_value, "Dev Ops"%>
+    <%= f.check_box :devops_value%>
+    <%= f.label :docker_value, "Docker"%>
+    <%= f.check_box :docker_value%>
+    <%= f.label :code_value, "Code"%>
+    <%= f.check_box :code_value%>
+
+    <%= f.submit "Begin" %>
 <% end %>
 </div>
